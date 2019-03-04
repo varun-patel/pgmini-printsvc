@@ -1,3 +1,21 @@
+package org.pgmini.miniprint;/*
+        PGMINI PRINT SERVICE
+        Copyright (C) 2019  Varun Patel <varun@varunpatel.ca>
+
+        This program is free software: you can redistribute it and/or modify
+        it under the terms of the GNU General Public License as published by
+        the Free Software Foundation, either version 3 of the License, or
+        (at your option) any later version.
+
+        This program is distributed in the hope that it will be useful,
+        but WITHOUT ANY WARRANTY; without even the implied warranty of
+        MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+        GNU General Public License for more details.
+
+        You should have received a copy of the GNU General Public License
+        along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
 public class Login {
 
     private String firstName;
@@ -11,6 +29,7 @@ public class Login {
     public Login() {
         this("guest", "guest");
     }
+
     public Login(String user, String pass) {
         setUser(user);
         setPass(pass);
@@ -18,10 +37,10 @@ public class Login {
     }
 
 
-
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
+
     public String getFirstName() {
         return firstName;
     }
@@ -30,6 +49,7 @@ public class Login {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
     public String getLastName() {
         return lastName;
     }
@@ -38,6 +58,7 @@ public class Login {
     public void setUser(String user) {
         this.user = user;
     }
+
     public String getUser() {
         return user;
     }
@@ -46,6 +67,7 @@ public class Login {
     public void setPass(String pass) {
         this.pass = pass;
     }
+
     public String getPass() {
         return pass;
     }
@@ -54,6 +76,7 @@ public class Login {
     public void setQuota(int[] quota) {
         this.quota = quota;
     }
+
     public int[] getQuota() {
         return quota;
     }
@@ -62,23 +85,24 @@ public class Login {
     public void setStudent(boolean student) {
         this.student = student;
     }
+
     public boolean isStudent() {
         return student;
     }
 
-t
+
     public void setAdmin(boolean admin) {
         this.admin = admin;
     }
+
     public boolean isAdmin() {
         return admin;
     }
 
 
-
     @Override
     public String toString() {
-        return user +","+ pass +","+ quota +","+ student +","+ admin;
+        return user + "," + pass + "," + quota + "," + student + "," + admin;
     }
 
 
