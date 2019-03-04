@@ -46,7 +46,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>loginDispatcher</servlet-name>
-        <url-pattern>*.org.pgmini.miniprint.Login</url-pattern>
+        <url-pattern>*.login</url-pattern>
     </servlet-mapping>
 
     <servlet>

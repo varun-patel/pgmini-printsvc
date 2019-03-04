@@ -24,38 +24,40 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class LoginController {
-    @RequestMapping(value = "/login/student", method = RequestMethod.POST)
-    public String student(ModelMap model) {
+public class AdministrationController {
+    @RequestMapping(value = "/admin/stats", method = RequestMethod.GET)
+    public String stats(ModelMap model) {
         model.addAttribute("message", "Hello Spring MVC Framework!");
-        return "/print.jsp";
+        return "index";
     }
 
-    @RequestMapping(value = "/login/addStudent", method = RequestMethod.POST)
-    public String addStudent(@ModelAttribute("SpringWeb") Login login, ModelMap model) {
-        model.addAttribute("FirstName", login.getFirstName());
-        model.addAttribute("lastName", login.getLastName());
-        model.addAttribute("user", login.getUser());
-        model.addAttribute("pass", login.getPass());
-        model.addAttribute("quota", login.getQuota());
-        model.addAttribute("student", login.isStudent());
-        model.addAttribute("admin", login.isAdmin());
-
-        if (login.isStudent() || login.isAdmin()) {
-            return "/print.jsp";
-        } else {
-            return "redirect:print";
-        }
+    @RequestMapping(value = "/admin/quotas", method = RequestMethod.GET)
+    public String quotas(ModelMap model) {
+        model.addAttribute("message", "Hello Spring MVC Framework!");
+        return "index";
     }
 
-    @RequestMapping(value = "/login/admin", method = RequestMethod.POST)
-    public String admin(ModelMap model) {
-        model.addAttribute("message", "Hello Spring MVC Framework!");
-        return "hello";
+    @RequestMapping(value = "/admin/changeQuotas", method = RequestMethod.POST)
+    public String changeQuotas(ModelMap model) {
+        model.addAttribute("message", "Hello Spring MVC Framework");
+        return "index";
     }
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String login(ModelMap model) {
+
+    @RequestMapping(value = "/admin/logins", method = RequestMethod.GET)
+    public String logins(ModelMap model) {
         model.addAttribute("message", "Hello Spring MVC Framework!");
-        return "hello";
+        return "index";
+    }
+
+    @RequestMapping(value = "/admin/logins/addlogins", method = RequestMethod.PUT)
+    public String addLogins(ModelMap model) {
+        model.addAttribute("message", "Hello Spring MVC Framework");
+        return "index";
+    }
+
+    @RequestMapping(value = "/admin/logins/dellogins", method = RequestMethod.DELETE)
+    public String delLogins(ModelMap model) {
+        model.addAttribute("message", "Hello Spring MVC Framework");
+        return "index";
     }
 }

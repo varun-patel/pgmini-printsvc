@@ -1,4 +1,5 @@
-package org.pgmini.miniprint;/*
+package org.pgmini.miniprint;
+/*
         PGMINI PRINT SERVICE
         Copyright (C) 2019  Varun Patel <varun@varunpatel.ca>
 
@@ -15,6 +16,10 @@ package org.pgmini.miniprint;/*
         You should have received a copy of the GNU General Public License
         along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
+
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 public class Login {
 
@@ -65,7 +70,19 @@ public class Login {
 
 
     public void setPass(String pass) {
-        this.pass = pass;
+        StringBuilder hexString = new StringBuilder();
+        try {
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            byte[] bhash = digest.digest(pass.getBytes(StandardCharsets.UTF_8));
+            for (int i = 0; i < bhash.length; i++) {
+                String hex = Integer.toHexString(0xff & bhash[i]);
+                if (hex.length() == 1) hexString.append('0');
+                hexString.append(hex);
+            }
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        this.pass = hexString.toString();
     }
 
     public String getPass() {
