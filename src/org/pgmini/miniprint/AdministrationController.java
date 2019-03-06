@@ -49,13 +49,13 @@ public class AdministrationController {
         return "index";
     }
 
-    @RequestMapping(value = "/admin/logins/addlogins", method = RequestMethod.PUT)
+    @RequestMapping(value = "/admin/logins/addLogins", method = RequestMethod.PUT)
     public String addLogins(ModelMap model) {
         model.addAttribute("message", "Hello Spring MVC Framework");
         return "index";
     }
 
-    @RequestMapping(value = "/admin/logins/dellogins", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/admin/logins/deLlogins", method = RequestMethod.DELETE)
     public String delLogins(ModelMap model) {
         model.addAttribute("message", "Hello Spring MVC Framework");
         return "index";

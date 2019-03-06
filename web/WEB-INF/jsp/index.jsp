@@ -17,10 +17,27 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-  <head>
+<head>
     <title>${Title}</title>
-  </head>
-  <body>
-  $END$
-  </body>
+</head>
+<body>
+<h2>Student Information</h2>
+    <form:form method="POST" action="/login/student">
+        <table>
+            <tr>
+                <td><form:label path="user">Student Number</form:label></td>
+                <td><form:input path="user"/></td>
+            </tr>
+            <tr>
+                <td><form:label path="pass">Password</form:label></td>
+                <td><form:password path="pass"/></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="Log In"/>
+                </td>
+            </tr>
+        </table>
+    </form:form>
+</body>
 </html>

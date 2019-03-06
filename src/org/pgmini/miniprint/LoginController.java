@@ -42,16 +42,29 @@ public class LoginController {
         model.addAttribute("admin", login.isAdmin());
 
         if (login.isStudent() || login.isAdmin()) {
-            return "/print.jsp";
+            return "/print";
         } else {
             return "redirect:print";
         }
     }
 
     @RequestMapping(value = "/login/admin", method = RequestMethod.POST)
-    public String admin(ModelMap model) {
+    public String addAdmin(@ModelAttribute("SpringWeb") Login login, ModelMap model) {
+        model.addAttribute("FirstName", login.getFirstName());
+        model.addAttribute("lastName", login.getLastName());
+        model.addAttribute("user", login.getUser());
+        model.addAttribute("pass", login.getPass());
+        model.addAttribute("quota", login.getQuota());
+        model.addAttribute("student", login.isStudent());
+        model.addAttribute("admin", login.isAdmin());
+
         model.addAttribute("message", "Hello Spring MVC Framework!");
-        return "hello";
+
+        if (login.isAdmin()) {
+            return "/admin/index";
+        } else {
+            return "index";
+        }
     }
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login(ModelMap model) {

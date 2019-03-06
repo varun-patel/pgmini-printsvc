@@ -31,15 +31,18 @@ public class Login {
     private boolean student;
     private boolean admin;
 
+    /*
     public Login() {
         this("guest", "guest");
     }
 
-    public Login(String user, String pass) {
+    public Login(String userid, String passwd) {
         setUser(user);
         setPass(pass);
+        logged(user, pass);
 
     }
+    */
 
 
     public void setFirstName(String firstName) {
@@ -123,4 +126,7 @@ public class Login {
     }
 
 
+    public void logged(String user, String pass) {
+
+    }
 }
