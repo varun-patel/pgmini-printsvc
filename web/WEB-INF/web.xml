@@ -30,43 +30,23 @@
     </listener>
 
     <servlet>
-        <servlet-name>dispatcher</servlet-name>
+        <servlet-name>loginDispatcher</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
-        <servlet-name>dispatcher</servlet-name>
+        <servlet-name>loginDispatcher</servlet-name>
         <url-pattern>*.form</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>loginDispatcher</servlet-name>
-        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>loginDispatcher</servlet-name>
-        <url-pattern>*.login</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>logoutDispatcher</servlet-name>
-        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>logoutDispatcher</servlet-name>
-        <url-pattern>*.logout</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
         <servlet-name>administrationDispatcher</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
         <servlet-name>administrationDispatcher</servlet-name>
-        <url-pattern>*.admin</url-pattern>
+        <url-pattern>*.adm</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -76,7 +56,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>queueDispatcher</servlet-name>
-        <url-pattern>*.queue</url-pattern>
+        <url-pattern>*.pq</url-pattern>
     </servlet-mapping>
 
 </web-app>

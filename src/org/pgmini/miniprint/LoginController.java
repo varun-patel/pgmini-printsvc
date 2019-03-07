@@ -29,12 +29,13 @@ public class LoginController {
     public String index(ModelMap model) {
         model.addAttribute("login", new Login());
         model.addAttribute("Title", "PG Mini Print Service");
+        model.addAttribute("error", null);
+
         return "index";
     }
 
     @RequestMapping(value = "/login/addLogin", method = RequestMethod.POST)
     public String addLogin(@ModelAttribute("authenticate") Login login, ModelMap model) {
-        model.addAttribute("login", new Login());
         model.addAttribute("Title", "PG Mini Print Service");
         model.addAttribute("FirstName", login.getFirstName());
         model.addAttribute("lastName", login.getLastName());
@@ -44,10 +45,16 @@ public class LoginController {
         model.addAttribute("student", login.isStudent());
         model.addAttribute("admin", login.isAdmin());
 
+        LoginJDBC loginJDBC = new LoginJDBC();
+        Login auth = loginJDBC.getLogin(login.getUser(), login.getPass());
+
         if (login.isStudent() || login.isAdmin()) {
             return "redirect:/queue/index";
         } else {
-            return "redirect:/login/index";
+            model.addAttribute("login", auth);
+            model.addAttribute("Title", "PG Mini Print Service");
+            model.addAttribute("error", "Student Number or Password Incorrect, Try Again");
+            return "index";
         }
     }
 }

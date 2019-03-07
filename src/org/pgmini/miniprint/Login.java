@@ -20,30 +20,18 @@ package org.pgmini.miniprint;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import org.postgresql.Driver;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 public class Login {
 
     private String firstName;
     private String lastName;
-    private String user;
+    private int user;
     private String pass;
     private int[] quota;
     private boolean student;
     private boolean admin;
-
-    /*
-    public Login() {
-        this("guest", "guest");
-    }
-
-    public Login(String userid, String passwd) {
-        setUser(user);
-        setPass(pass);
-        logged(user, pass);
-
-    }
-    */
-
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
@@ -63,11 +51,11 @@ public class Login {
     }
 
 
-    public void setUser(String user) {
+    public void setUser(int user) {
         this.user = user;
     }
 
-    public String getUser() {
+    public int getUser() {
         return user;
     }
 

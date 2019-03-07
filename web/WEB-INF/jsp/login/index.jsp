@@ -25,6 +25,14 @@
     <h2>Student Information</h2>
     <form:form method="POST" action="/login/addLogin" modelAttribute="login">
         <table>
+            <%
+                if () {
+
+                }
+            %>
+            <tr>
+                <td></td>
+            </tr>
             <tr>
                 <td><form:label path="user">Student Number</form:label></td>
                 <td><form:input path="user"/></td>
