@@ -17,7 +17,7 @@
       <change afterPath="$PROJECT_DIR$/src/org/pgmini/miniprint/LoginMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/printsvc/org/pgmini/miniprint/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/printsvc/org/pgmini/miniprint/Login.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/printsvc/org/pgmini/miniprint/LoginController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/printsvc/org/pgmini/miniprint/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/printsvc/org/pgmini/miniprint/LoginController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/printsvc.iml" beforeDir="false" afterPath="$PROJECT_DIR$/printsvc.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/pgmini/miniprint/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/pgmini/miniprint/Login.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/pgmini/miniprint/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/pgmini/miniprint/LoginController.java" afterDir="false" />
@@ -107,11 +107,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/pgmini/miniprint/LoginDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="6" column="34" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
+            <state relative-caret-position="144">
+              <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -122,8 +122,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/pgmini/miniprint/LoginJDBC.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="9" selection-start-line="9" selection-end-line="9" />
+            <state relative-caret-position="90">
+              <caret line="8" column="43" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -131,11 +131,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/org/pgmini/miniprint/Login.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="71" column="13" selection-start-line="71" selection-start-column="13" selection-end-line="71" selection-end-column="13" />
+            <state relative-caret-position="-54">
+              <caret line="37" column="5" lean-forward="true" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1304#1305#0" expanded="true" />
@@ -183,8 +183,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/pgmini/miniprint/LoginController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="47" column="30" selection-start-line="47" selection-start-column="30" selection-end-line="47" selection-end-column="30" />
+            <state relative-caret-position="552">
+              <caret line="48" column="74" lean-forward="true" selection-start-line="48" selection-start-column="74" selection-end-line="48" selection-end-column="74" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -233,6 +233,11 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -257,9 +262,9 @@
         <option value="$PROJECT_DIR$/src/org/pgmini/miniprint/loginDAO.java" />
         <option value="$PROJECT_DIR$/src/org/pgmini/miniprint/LoginMapper.java" />
         <option value="$PROJECT_DIR$/src/org/pgmini/miniprint/Login.java" />
+        <option value="$PROJECT_DIR$/src/org/pgmini/miniprint/LoginDAO.java" />
         <option value="$PROJECT_DIR$/src/org/pgmini/miniprint/LoginJDBC.java" />
         <option value="$PROJECT_DIR$/src/org/pgmini/miniprint/LoginController.java" />
-        <option value="$PROJECT_DIR$/src/org/pgmini/miniprint/LoginDAO.java" />
       </list>
     </option>
   </component>
@@ -314,8 +319,8 @@
     <property name="DatabaseDriversLRU" value="postgresql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551937401181" />
-    <property name="database.console.LAST_STATE" value="false" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551937564438" />
+    <property name="database.console.LAST_STATE" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/postgresql-42.2.5.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -605,11 +610,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24739000" />
+    <option name="totallyTimeSpent" value="24983000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1042" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.19322917" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -695,7 +699,8 @@
     <MESSAGE value="continue to work on login controller&#10;add .war artifact to export&#10;rearrange web directory layout" />
     <MESSAGE value="form now works at /login/index.login" />
     <MESSAGE value="form now works at /login/index.login&#10;artifacts completely rebuilt&#10;loginController modified" />
-    <option name="LAST_COMMIT_MESSAGE" value="form now works at /login/index.login&#10;artifacts completely rebuilt&#10;loginController modified" />
+    <MESSAGE value="attempt sql integration" />
+    <option name="LAST_COMMIT_MESSAGE" value="attempt sql integration" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/printsvc.iml">
@@ -827,10 +832,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/pgmini/miniprint/LoginDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/pgmini/miniprint/LoginJDBC.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="8" column="43" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/pgmini/miniprint/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="552">
+          <caret line="48" column="74" lean-forward="true" selection-start-line="48" selection-start-column="74" selection-end-line="48" selection-end-column="74" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/org/pgmini/miniprint/Login.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="71" column="13" selection-start-line="71" selection-start-column="13" selection-end-line="71" selection-end-column="13" />
+        <state relative-caret-position="-54">
+          <caret line="37" column="5" lean-forward="true" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1304#1305#0" expanded="true" />
@@ -861,36 +896,6 @@
             <element signature="e#2929#2930#0" expanded="true" />
             <element signature="e#2976#2977#0" expanded="true" />
             <element signature="e#3060#3061#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/pgmini/miniprint/LoginJDBC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/pgmini/miniprint/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="47" column="30" selection-start-line="47" selection-start-column="30" selection-end-line="47" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/pgmini/miniprint/LoginDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="34" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
