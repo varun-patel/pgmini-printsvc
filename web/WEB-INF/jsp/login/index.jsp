@@ -16,13 +16,14 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <html>
 <head>
     <title>${Title}</title>
 </head>
 <body>
     <h2>Student Information</h2>
-    <form:form method="POST" action="/login/addLogin.login">
+    <form:form method="POST" action="/login/addLogin" modelAttribute="login">
         <table>
             <tr>
                 <td><form:label path="user">Student Number</form:label></td>

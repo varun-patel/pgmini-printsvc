@@ -27,12 +27,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class LoginController {
     @RequestMapping(value = "/login/index", method = RequestMethod.GET)
     public String index(ModelMap model) {
-        model.addAttribute("message", "Hello Spring MVC Framework!");
+        model.addAttribute("login", new Login());
+        model.addAttribute("Title", "PG Mini Print Service");
         return "index";
     }
 
     @RequestMapping(value = "/login/addLogin", method = RequestMethod.POST)
-    public String addLogin(@ModelAttribute("SpringWeb") Login login, ModelMap model) {
+    public String addLogin(@ModelAttribute("authenticate") Login login, ModelMap model) {
+        model.addAttribute("login", new Login());
+        model.addAttribute("Title", "PG Mini Print Service");
         model.addAttribute("FirstName", login.getFirstName());
         model.addAttribute("lastName", login.getLastName());
         model.addAttribute("user", login.getUser());
@@ -42,9 +45,9 @@ public class LoginController {
         model.addAttribute("admin", login.isAdmin());
 
         if (login.isStudent() || login.isAdmin()) {
-            return "redirect:/queue/index.queue";
+            return "redirect:/queue/index";
         } else {
-            return "redirect:/login/index.login";
+            return "redirect:/login/index";
         }
     }
 }
