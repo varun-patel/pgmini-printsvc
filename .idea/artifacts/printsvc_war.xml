@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="printsvc:war">
+    <output-path>$PROJECT_DIR$/out/artifacts/printsvc_war</output-path>
+    <root id="archive" name="printsvc_war.war">
+      <element id="artifact" artifact-name="printsvc:war exploded" />
+    </root>
+  </artifact>
+</component>
