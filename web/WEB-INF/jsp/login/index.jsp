@@ -23,7 +23,7 @@
 </head>
 <body>
     <h2>Student Information</h2>
-    <form:form method="POST" action="/login/addLogin.login" modelAttribute="Login">
+    <form:form method="POST" action="/login/addLogin" modelAttribute="Login">
         <table>
             <tr>
                 <td><form:label path="user">Student Number</form:label></td>

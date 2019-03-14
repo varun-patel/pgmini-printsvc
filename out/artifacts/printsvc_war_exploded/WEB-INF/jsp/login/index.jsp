@@ -23,21 +23,21 @@
 </head>
 <body>
     <h2>Student Information</h2>
-    <form:form method="POST" action="/login/addLogin.login" modelAttribute="Login">
+    <form:form method="POST" action="/login/addLogin" modelAttribute="Login">
         <table>
             <tr>
                 <td><form:label path="user">Student Number</form:label></td>
                 <td><form:input path="user"/></td>
             </tr>
             <tr>
-                <td colspan="2"><form:errors path="user" cssStyle="color: #ff0000;"/><</td>
+                <td colspan="2"><form:errors path="user" cssStyle="color: #ff0000;"/></td>
             </tr>
             <tr>
                 <td><form:label path="pass">Password</form:label></td>
                 <td><form:password path="pass"/></td>
             </tr>
             <tr>
-                <td colspan="2"><form:errors path="pass" cssStyle="color: #ff0000;"/><</td>
+                <td colspan="2"><form:errors path="pass" cssStyle="color: #ff0000;"/></td>
             </tr>
             <tr>
                 <td colspan="2">

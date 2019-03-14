@@ -41,7 +41,7 @@ public class LoginController {
     }
 
     @RequestMapping(value = "/login/addLogin", method = RequestMethod.POST)
-    public String login_addLogin(@ModelAttribute("Login") Login login, ModelMap model) {
+    public String login_addLogin(Login login, ModelMap model) {
         model.addAttribute("Title", "PG Mini Print Service");
 
         LoginSQL runner = new LoginSQL();
