@@ -60,7 +60,7 @@ public class LoginController {
             model.addAttribute("Login", new Login());
             model.addAttribute("error", runner.getError());
             model.addAttribute("errorDetails", runner.getRawError());
-            return "index";
+            return "error";
         }
     }
 }

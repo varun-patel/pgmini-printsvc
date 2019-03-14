@@ -1,4 +1,5 @@
-<%@ page import="java.net.http.HttpRequest" %><%--
+<%@ page import="java.net.http.HttpRequest" %>
+<%@ page import="org.springframework.web.bind.annotation.RequestAttribute" %><%--
     PGMINI PRINT SERVICE
     Copyright (C) 2019  Varun Patel <varun@varunpatel.ca>
 
@@ -21,6 +22,7 @@
 <head>
     <title>${Title}</title>
 </head>
+
 <body>
     <h2>Student Information</h2>
     <form:form method="POST" action="/login/addLogin" modelAttribute="Login">
@@ -30,14 +32,17 @@
                 <td><form:input path="user"/></td>
             </tr>
             <tr>
-                <td colspan="2"><form:errors path="user" cssStyle="color: #ff0000;"/></td>
-            </tr>
-            <tr>
                 <td><form:label path="pass">Password</form:label></td>
                 <td><form:password path="pass"/></td>
             </tr>
+
             <tr>
-                <td colspan="2"><form:errors path="pass" cssStyle="color: #ff0000;"/></td>
+                <td colspan="2" class="accordion">${error}</td>
+                <div class="panel">
+                    <p>
+                        ${errorDetails}
+                    </p>
+                </div>
             </tr>
             <tr>
                 <td colspan="2">
