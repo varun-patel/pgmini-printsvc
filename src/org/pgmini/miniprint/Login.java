@@ -20,6 +20,7 @@ package org.pgmini.miniprint;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.UUID;
 
 public class Login {
 
@@ -30,19 +31,31 @@ public class Login {
     private int[] quota;
     private boolean student;
     private boolean admin;
+    private UUID uuid;
 
-    /*
-    public Login() {
-        this("guest", "guest");
-    }
+    private String error;
 
-    public Login(String userid, String passwd) {
-        setUser(user);
-        setPass(pass);
-        logged(user, pass);
+    public Login () {
 
     }
-    */
+
+    public Login (int user,
+                  String firstName,
+                  String lastName,
+                  String pass,
+                  int[] quota,
+                  UUID uuid,
+                  boolean student,
+                  boolean admin) {
+
+        setFirstName(firstName);
+        setLastName(lastName);
+        setQuota(quota);
+        if (getPass().equals(hashPass(pass,uuid))) {
+            setStudent(student);
+            setAdmin(admin);
+        }
+    }
 
 
     public void setFirstName(String firstName) {
@@ -73,19 +86,7 @@ public class Login {
 
 
     public void setPass(String pass) {
-        StringBuilder hexString = new StringBuilder();
-        try {
-            MessageDigest digest = MessageDigest.getInstance("SHA-256");
-            byte[] bhash = digest.digest(pass.getBytes(StandardCharsets.UTF_8));
-            for (int i = 0; i < bhash.length; i++) {
-                String hex = Integer.toHexString(0xff & bhash[i]);
-                if (hex.length() == 1) hexString.append('0');
-                hexString.append(hex);
-            }
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
-        this.pass = hexString.toString();
+        this.pass = pass;
     }
 
     public String getPass() {
@@ -120,13 +121,45 @@ public class Login {
     }
 
 
+    public void setUuid(UUID uuid) {
+        this.uuid = uuid;
+    }
+
+    public UUID getUuid() {
+        return uuid;
+    }
+
+
+    public void setError(String error) {
+        this.error = error;
+    }
+
+    public String getError() {
+        return error;
+    }
+
+
     @Override
     public String toString() {
         return user + "," + pass + "," + quota + "," + student + "," + admin;
     }
 
 
-    public void logged(String user, String pass) {
+    public String hashPass(String pass, UUID uuid) {
+        pass += uuid.toString();
+        StringBuilder hexString = new StringBuilder();
+        try {
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            byte[] bhash = digest.digest(pass.getBytes(StandardCharsets.UTF_8));
+            for (int i = 0; i < bhash.length; i++) {
+                String hex = Integer.toHexString(0xff & bhash[i]);
+                if (hex.length() == 1) hexString.append('0');
+                hexString.append(hex);
+            }
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
 
+        return hexString.toString();
     }
 }

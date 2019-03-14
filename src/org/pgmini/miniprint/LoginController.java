@@ -25,29 +25,42 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class LoginController {
-    @RequestMapping(value = "/login/index", method = RequestMethod.GET)
+
+    @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String index(ModelMap model) {
-        model.addAttribute("login", new Login());
+        model.addAttribute("Login", new Login());
+        model.addAttribute("Title", "PG Mini Print Service");
+        return "index";
+    }
+
+    @RequestMapping(value = "/login/index", method = RequestMethod.GET)
+    public String login_index(ModelMap model) {
+        model.addAttribute("Login", new Login());
         model.addAttribute("Title", "PG Mini Print Service");
         return "index";
     }
 
     @RequestMapping(value = "/login/addLogin", method = RequestMethod.POST)
-    public String addLogin(@ModelAttribute("authenticate") Login login, ModelMap model) {
-        model.addAttribute("login", new Login());
+    public String login_addLogin(@ModelAttribute("Login") Login login, ModelMap model) {
         model.addAttribute("Title", "PG Mini Print Service");
-        model.addAttribute("FirstName", login.getFirstName());
-        model.addAttribute("lastName", login.getLastName());
-        model.addAttribute("user", login.getUser());
-        model.addAttribute("pass", login.getPass());
-        model.addAttribute("quota", login.getQuota());
-        model.addAttribute("student", login.isStudent());
-        model.addAttribute("admin", login.isAdmin());
 
-        if (login.isStudent() || login.isAdmin()) {
+        LoginSQL runner = new LoginSQL();
+        boolean authenticated = runner.authenticated(login.getUser(), login.getPass());
+
+        if (authenticated) {
+            model.addAttribute("FirstName", login.getFirstName());
+            model.addAttribute("lastName", login.getLastName());
+            model.addAttribute("user", login.getUser());
+            model.addAttribute("pass", login.getPass());
+            model.addAttribute("quota", login.getQuota());
+            model.addAttribute("student", login.isStudent());
+            model.addAttribute("admin", login.isAdmin());
             return "redirect:/queue/index";
         } else {
-            return "redirect:/login/index";
+            model.addAttribute("Login", new Login());
+            model.addAttribute("error", runner.getError());
+            model.addAttribute("errorDetails", runner.getRawError());
+            return "index";
         }
     }
 }
