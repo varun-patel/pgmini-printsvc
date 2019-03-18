@@ -35,15 +35,20 @@
                 <td><form:label path="pass">Password</form:label></td>
                 <td><form:password path="pass"/></td>
             </tr>
-
-            <tr>
-                <td colspan="2" class="accordion">${error}</td>
-                <div class="panel">
-                    <p>
-                        ${errorDetails}
-                    </p>
-                </div>
-            </tr>
+            <%
+                if (request.getAttribute("error") != null) {
+            %>
+                    <tr>
+                        <td colspan="2" class="accordion">${error}</td>
+                        <div class="panel">
+                            <p>
+                                ${errorDetails}
+                            </p>
+                        </div>
+                    </tr>
+            <%
+                }
+            %>
             <tr>
                 <td colspan="2">
                     <input type="submit" value="Log In"/>

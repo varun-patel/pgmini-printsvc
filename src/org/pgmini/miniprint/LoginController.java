@@ -19,9 +19,13 @@ package org.pgmini.miniprint;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import javax.validation.Valid;
+import java.util.UUID;
 
 @Controller
 public class LoginController {
@@ -41,13 +45,14 @@ public class LoginController {
     }
 
     @RequestMapping(value = "/login/addLogin", method = RequestMethod.POST)
-    public String login_addLogin(Login login, ModelMap model) {
+    public String login_addLogin(@Valid Login login, ModelMap model, BindingResult bindingResult) {
         model.addAttribute("Title", "PG Mini Print Service");
 
         LoginSQL runner = new LoginSQL();
         boolean authenticated = runner.authenticated(login.getUser(), login.getPass());
 
         if (authenticated) {
+            model.addAttribute("Login", login);
             model.addAttribute("FirstName", login.getFirstName());
             model.addAttribute("lastName", login.getLastName());
             model.addAttribute("user", login.getUser());
@@ -55,12 +60,20 @@ public class LoginController {
             model.addAttribute("quota", login.getQuota());
             model.addAttribute("student", login.isStudent());
             model.addAttribute("admin", login.isAdmin());
+            model.addAttribute("gradYear", login.getGradYear());
+            model.addAttribute("uuid", login.getUuid());
+
             return "redirect:/queue/index";
-        } else {
+        } else if (bindingResult.hasErrors()) {
             model.addAttribute("Login", new Login());
             model.addAttribute("error", runner.getError());
             model.addAttribute("errorDetails", runner.getRawError());
-            return "error";
+            return "index";
+        } else {
+            model.addAttribute("Login", new Login());
+            model.addAttribute("error", "An unknown error occurred");
+            model.addAttribute("errorDetails", "send the following information to the lab administrator \n" + login.toString() + "\n" + bindingResult.toString() + "\n" + model.toString() + UUID.randomUUID());
+            return "index";
         }
     }
 }

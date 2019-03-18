@@ -21,40 +21,47 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.UUID;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 
 public class Login {
 
     private String firstName;
     private String lastName;
+    @NotNull
     private String user;
+    @NotNull
+    @Size(min = 8, max = 64)
     private String pass;
     private int[] quota;
     private boolean student;
     private boolean admin;
+    private int gradYear;
     private UUID uuid;
-
-    private String error;
 
     public Login () {
 
     }
 
-    public Login (int user,
+    public Login (String user,
                   String firstName,
                   String lastName,
                   String pass,
                   int[] quota,
                   UUID uuid,
                   boolean student,
-                  boolean admin) {
-
+                  boolean admin,
+                  int gradYear) {
+        setUser(user);
         setFirstName(firstName);
         setLastName(lastName);
+        setPass(hashPass(pass, uuid));
         setQuota(quota);
-        if (getPass().equals(hashPass(pass,uuid))) {
-            setStudent(student);
-            setAdmin(admin);
-        }
+        setUuid(uuid);
+        setStudent(student);
+        setAdmin(admin);
+        setGradYear(gradYear);
     }
 
 
@@ -86,7 +93,7 @@ public class Login {
 
 
     public void setPass(String pass) {
-        this.pass = pass;
+        this.pass = hashPass(pass, uuid);
     }
 
     public String getPass() {
@@ -121,6 +128,15 @@ public class Login {
     }
 
 
+    public void setGradYear(int gradYear) {
+        this.gradYear = gradYear;
+    }
+
+    public int getGradYear() {
+        return gradYear;
+    }
+
+
     public void setUuid(UUID uuid) {
         this.uuid = uuid;
     }
@@ -130,18 +146,13 @@ public class Login {
     }
 
 
-    public void setError(String error) {
-        this.error = error;
-    }
-
-    public String getError() {
-        return error;
-    }
-
-
     @Override
     public String toString() {
-        return user + "," + pass + "," + quota + "," + student + "," + admin;
+        String qt = "";
+        for (int i = 0; i < quota.length; i++) {
+            qt += quota[i];
+        }
+        return user + "," + pass + "," + qt + "," + student + "," + admin;
     }
 
 
