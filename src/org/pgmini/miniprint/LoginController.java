@@ -34,6 +34,7 @@ public class LoginController {
     public String index(ModelMap model) {
         model.addAttribute("Login", new Login());
         model.addAttribute("Title", "PG Mini Print Service");
+        model.addAttribute("relpath", "./login/addLogin.login");
         return "index";
     }
 
@@ -41,15 +42,16 @@ public class LoginController {
     public String login_index(ModelMap model) {
         model.addAttribute("Login", new Login());
         model.addAttribute("Title", "PG Mini Print Service");
+        model.addAttribute("relpath", "./addLogin.login");
         return "index";
     }
 
     @RequestMapping(value = "/login/addLogin", method = RequestMethod.POST)
-    public String login_addLogin(@Valid Login login, ModelMap model, BindingResult bindingResult) {
+    public String login_addLogin(@ModelAttribute("login") /*@Valid*/ Login login, ModelMap model/*, BindingResult bindingResult*/) {
         model.addAttribute("Title", "PG Mini Print Service");
 
         LoginSQL runner = new LoginSQL();
-        boolean authenticated = runner.authenticated(login.getUser(), login.getPass());
+        boolean authenticated = runner.authenticate(login);
 
         if (authenticated) {
             model.addAttribute("Login", login);
@@ -64,15 +66,26 @@ public class LoginController {
             model.addAttribute("uuid", login.getUuid());
 
             return "redirect:/queue/index";
-        } else if (bindingResult.hasErrors()) {
+        } else if (runner.getError() != null) {
             model.addAttribute("Login", new Login());
             model.addAttribute("error", runner.getError());
             model.addAttribute("errorDetails", runner.getRawError());
+            model.addAttribute("relpath", "./addLogin.login");
             return "index";
-        } else {
+        }
+        /*else if (bindingResult.hasErrors()) {
+            model.addAttribute("Login", new Login());
+            model.addAttribute("error", "Invalid Login or Password Input");
+            model.addAttribute("errorDetails", "send the following information to the lab administrator \n" + login.toString() + "\n" + bindingResult.toString() + "\n" + model.toString() + UUID.randomUUID());
+
+            model.addAttribute("relpath", "./addLogin.login");
+            return "index";
+        }*/
+        else {
             model.addAttribute("Login", new Login());
             model.addAttribute("error", "An unknown error occurred");
-            model.addAttribute("errorDetails", "send the following information to the lab administrator \n" + login.toString() + "\n" + bindingResult.toString() + "\n" + model.toString() + UUID.randomUUID());
+            model.addAttribute("errorDetails", "send the following information to the lab administrator \n" + login.toString() + "\n" + /*bindingResult.toString() + "\n" + */model.toString() + UUID.randomUUID());
+            model.addAttribute("relpath", "./addLogin.login");
             return "index";
         }
     }

@@ -20,12 +20,23 @@ public class LoginSQL {
     private String error;
     private String rawError;
 
-    public boolean authenticated(String user, String pass) {
+    public boolean authenticate(Login l) {
         boolean output = false;
         try {
-            runSQL("SELECT password FROM users WHERE studentnumber = " + user + ";");
-            if (rs.next()) {
-                output = true;
+            runSQL("SELECT password, uuid FROM users WHERE studentnumber = " + l.getUser() + ";");
+            if (getRs().next()) {
+                String passFromDB = getRs().getString("password");
+                String uuidFromDB = getRs().getString("uuid");
+                l.setPass(l.hashPass(l.getPass(), UUID.fromString(uuidFromDB)));
+                if (l.getPass().equals(passFromDB)) {
+                    output = true;
+                } else {
+                    setError("Password Mismatch");
+                    setRawError("The provided password did not match the password on database.\nPlease try again or reset your password by speaking to an administrator.");
+                }
+            } else {
+                setError("Invalid Username");
+                setRawError("The provided username did not match any record on the database.\nMake sure you are using your student number and try again, if this issue continues to occur, contact an administrator.");
             }
 
         } catch (SQLException e) {
@@ -90,9 +101,9 @@ public class LoginSQL {
 
     private void runSQL(String query) {
         try {
-            conn = DriverManager.getConnection(JDBCURL, DBUser, DBPass);
-            stmt = conn.createStatement();
-            rs = stmt.executeQuery(query);
+            setConn(DriverManager.getConnection(getJDBCURL(), getDBUser(), getDBPass()));
+            setStmt(conn.createStatement());
+            setRs(stmt.executeQuery(query));
         } catch (SQLException e) {
             parseSQLException(e);
         }
@@ -100,13 +111,13 @@ public class LoginSQL {
 
     private void closeConn() {
         try {
-            if (stmt != null) {
+            if (getStmt() != null) {
                 stmt.close();
             }
-            if (rs != null) {
+            if (getRs() != null) {
                 rs.close();
             }
-            if (conn != null) {
+            if (getConn() != null) {
                 rs.close();
             }
         } catch (SQLException e) {

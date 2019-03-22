@@ -29,10 +29,7 @@ public class Login {
 
     private String firstName;
     private String lastName;
-    @NotNull
     private String user;
-    @NotNull
-    @Size(min = 8, max = 64)
     private String pass;
     private int[] quota;
     private boolean student;
